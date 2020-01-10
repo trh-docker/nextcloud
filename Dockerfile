@@ -8,6 +8,12 @@ RUN apt-get update &&\
     apt-get install -y --allow-unauthenticated php7.1-zip &&\
     apt-get autoclean && apt-get autoremove &&\
     rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
+ADD files/php/ /etc/php/${PHP_VERSION}/fpm/pool.d/
+ADD files/bash/entry.sh /opt/bin/
+ADD files/bash/composer.sh /opt/
+RUN chmod +x /opt/composer.sh && /opt/composer.sh &&\
+    apt-get autoclean && apt-get autoremove &&\
+    rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
 ADD https://download.nextcloud.com/server/releases/nextcloud-17.0.2.zip /opt/tlm/html/v17.0.2.zip
 RUN unzip v17.0.2.zip &&\ 
