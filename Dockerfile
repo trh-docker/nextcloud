@@ -9,7 +9,6 @@ RUN apt-get update &&\
     apt-get autoclean && apt-get autoremove &&\
     rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 ADD files/php/ /etc/php/${PHP_VERSION}/fpm/pool.d/
-ADD files/bash/entry.sh /opt/bin/
 ADD files/bash/composer.sh /opt/
 RUN chmod +x /opt/composer.sh && /opt/composer.sh &&\
     apt-get autoclean && apt-get autoremove &&\
