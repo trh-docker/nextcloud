@@ -1,4 +1,4 @@
-FROM quay.io/spivegin/php7
+FROM quay.io/spivegin/php7:7.1.3
 
 ADD files/Caddy/Caddyfile /opt/caddy/
 ADD files/php/ /etc/php/7.0/fpm/pool.d/
