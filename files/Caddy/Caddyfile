@@ -4,7 +4,7 @@
 	log    /var/log/nextcloud_access.log
 	errors /var/log/nextcloud_errors.log
 
-	fastcgi / 127.0.0.1:9000 php {
+	fastcgi / /run/php/php7.0-fpm.sock php {
 		env PATH /bin
 		env modHeadersAvailable true
 		env front_controller_active true
