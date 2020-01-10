@@ -7,7 +7,8 @@ WORKDIR /opt/tlm/html
 ADD https://download.nextcloud.com/server/releases/nextcloud-17.0.2.zip /opt/tlm/html/v17.0.2.zip
 RUN unzip v17.0.2.zip &&\ 
     chown -R www-data:www-data .
-RUN apt install -y libapache2-mod-php7.1 \
+RUN apt-get update &&\
+    apt-get install -y libapache2-mod-php7.1 \
     php7.1-gd php7.1-json php7.1-mysql php7.1-curl \
     php7.1-intl php7.1-mcrypt php-imagick \
     php7.1-zip php7.1-xml php7.1-mbstring &&\
