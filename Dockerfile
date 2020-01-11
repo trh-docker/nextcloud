@@ -9,7 +9,9 @@ RUN apt-get update &&\
 ADD files/Caddy/Caddyfile /opt/caddy/
 ADD files/php/ /etc/php/7.1/fpm/pool.d/
 ADD files/nextcloud/v17.0.2.zip /opt/tlm/html/nextcloud.zip
-RUN unzip nextcloud.zip && rm nextcloud.zip &&\ 
+RUN unzip nextcloud.zip &&\
+    rm nextcloud.zip &&\
+    mkdir /opt/tlm/html/nextcloud/data &&\
     chown -R www-data:www-data .
 EXPOSE 80
 
