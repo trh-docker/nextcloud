@@ -2,7 +2,7 @@ FROM quay.io/spivegin/php7:7.1
 
 WORKDIR /opt/tlm/html
 RUN apt-get update &&\
-    apt-get install -y --allow-unauthenticated php7.1-zip sqlite3 php-sqlite3 &&\
+    apt-get install -y --allow-unauthenticated php7.1-zip sqlite3 php7.1-sqlite3 &&\
     apt-get autoclean && apt-get autoremove &&\
     rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
